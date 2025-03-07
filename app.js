@@ -1,6 +1,6 @@
 
 const addBtn = document.querySelector('#add-btn');
-const bookTitle = document.querySelector('#bookTitle');
+const bookForm = document.querySelector('#book-form');
 
 const myLibrary = [];
 
@@ -16,17 +16,17 @@ function Book(title, author, pages, status) {
 }
 
 function addBookToLibrary() {
-    const title = prompt('Enter title: ');
-    const author = prompt('Enter author: ');
-    const pages = parseInt(prompt('Enter pages: '));
-    const status = prompt('Enter status: ');
+    const title = document.querySelector('#book-title').value;
+    const author = document.querySelector('#book-author').value;
+    const pages = document.querySelector('#book-pages').value;
+    const status = document.querySelector('#book-status').value;
     const newBook = new Book(title, author, pages, status);
     newBook.getinfo();
     myLibrary.push(newBook);
 }
 
 addBtn.addEventListener('click', () => {
-  addBookToLibrary();
-  console.table(myLibrary);
+    bookForm.style.display = 'block';
+    addBookToLibrary();
+    console.table(myLibrary);
 })
-

@@ -7,11 +7,21 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Book-Library</h1>
-
-    <h1 id="bookTitle"></h1>
-
-    <button id="add-btn">+</button>
+    <div class="header">
+        <h1>Book-Library</h1>
+        <button id="add-btn">+</button>
+    </div>
+    <form action="" id="book-form" style="display: none;">
+        <label for="book-title">Title</label>
+        <input type="text" id="book-title">
+        <label for="book-author">Author</label>
+        <input type="text" id="book-author">
+        <label for="book-pages">Number Of Pages</label>
+        <input type="text" id="book-pages">
+        <label for="book-status">Read</label>
+        <input type="checkbox" id="book-status">
+        <button type="submit">Add Book</button>
+    </form>
 
     <script src="app.js"></script>
 </body>
