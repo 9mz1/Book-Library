@@ -21,7 +21,7 @@ function addBookToLibrary() {
     const title = document.querySelector('#book-title').value;
     const author = document.querySelector('#book-author').value;
     const pages = document.querySelector('#book-pages').value;
-    const status = document.querySelector('#book-status').value;
+    const status = document.querySelector('#book-status').checked;
     const newBook = new Book(title, author, pages, status);
     newBook.getinfo();
     myLibrary.push(newBook);
@@ -49,7 +49,11 @@ function displayBook() {
 
         const bookStatus = document.createElement('p')
         bookStatus.classList.add('book-status');
-        bookStatus.textContent = myLibrary[i].status;
+        if (myLibrary[i].status === true) {
+            bookStatus.textContent = 'read';
+        } else {
+            bookStatus.textContent = 'not read';
+        }
 
         card.appendChild(bookTitle);
         card.appendChild(bookAuthor);
@@ -67,5 +71,6 @@ submitBtn.addEventListener('click', () => {
     event.preventDefault();
     addBookToLibrary();
     displayBook();
+    bookForm.style.display = 'none';
     bookForm.reset();
 });
