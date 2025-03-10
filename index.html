@@ -11,17 +11,19 @@
         <h1>Book-Library</h1>
         <button id="add-btn">+</button>
     </div>
-    <form action="" id="book-form" style="display: none;">
-        <label for="book-title">Title</label>
-        <input type="text" id="book-title">
-        <label for="book-author">Author</label>
-        <input type="text" id="book-author">
-        <label for="book-pages">Number Of Pages</label>
-        <input type="number"  id="book-pages">
-        <label for="book-status">Read</label>
-        <input type="checkbox" id="book-status">
-        <button type="submit" id="submit-button">Add Book</button>
-    </form>
+    <dialog id="form-dialog">
+        <form action="" id="book-form">
+            <label for="book-title">Title</label>
+            <input type="text" id="book-title">
+            <label for="book-author">Author</label>
+            <input type="text" id="book-author">
+            <label for="book-pages">Number Of Pages</label>
+            <input type="number"  id="book-pages">
+            <label for="book-status">Read</label>
+            <input type="checkbox" id="book-status">
+            <button type="submit" id="submit-button">Add Book</button>
+        </form>
+    </dialog>
 
     <div id="books-container">
         <div class="card">

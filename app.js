@@ -1,6 +1,7 @@
 
 const addBtn = document.querySelector('#add-btn');
 const submitBtn = document.querySelector("#submit-button")
+const dialog = document.querySelector('#form-dialog');
 const bookForm = document.querySelector('#book-form');
 const booksContainer = document.querySelector('#books-container');
 
@@ -30,7 +31,7 @@ function addBookToLibrary() {
 }
 
 function displayBook() {
-    // booksContainer.innerHTML = '';   
+    // booksContainer.innerHTML = '';   to be uncommented before finalizing
     for (i = 0; i < myLibrary.length; i++) {
         const card = document.createElement('div')
         card.classList.add('card');
@@ -64,13 +65,13 @@ function displayBook() {
 }
 
 addBtn.addEventListener('click', () => {
-    bookForm.style.display = 'block';
+    dialog.showModal();
 });
 
 submitBtn.addEventListener('click', () => {
     event.preventDefault();
     addBookToLibrary();
     displayBook();
-    bookForm.style.display = 'none';
+    dialog.close();
     bookForm.reset();
 });
