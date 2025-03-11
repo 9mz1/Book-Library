@@ -1,4 +1,4 @@
-
+const greeting = document.querySelector('#greeting');
 const addBtn = document.querySelector('#add-btn');
 const submitBtn = document.querySelector("#submit-button")
 const dialog = document.querySelector('#form-dialog');
@@ -6,6 +6,10 @@ const bookForm = document.querySelector('#book-form');
 const booksContainer = document.querySelector('#books-container');
 
 const myLibrary = [];
+
+const userName = prompt('What is your name?');
+const finalName = userName.charAt(0).toUpperCase() + userName.slice(1);
+greeting.textContent = `Goodmorning ${finalName}!`;
 
 function Book(title, author, pages, status) {
     this.ID = crypto.randomUUID();
