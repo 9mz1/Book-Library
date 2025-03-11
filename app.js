@@ -9,7 +9,7 @@ const myLibrary = [];
 
 const userName = prompt('What is your name?');
 const finalName = userName.charAt(0).toUpperCase() + userName.slice(1);
-greeting.textContent = `Goodmorning ${finalName}!`;
+greeting.textContent = `Goodmorning, ${finalName}!`;
 
 function Book(title, author, pages, status) {
     this.ID = crypto.randomUUID();
