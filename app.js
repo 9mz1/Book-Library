@@ -31,7 +31,7 @@ function addBookToLibrary() {
 }
 
 function displayBook() {
-    // booksContainer.innerHTML = '';   to be uncommented before finalizing
+    // booksContainer.innerHTML = '';   //to be uncommented before finalizing
     for (i = 0; i < myLibrary.length; i++) {
         const card = document.createElement('div')
         card.classList.add('card');

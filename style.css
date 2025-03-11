@@ -1,5 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&family=Outfit:wght@100..900&display=swap');
 
+:root {
+    --primary-color: #FB5512;
+    --secondary-color: #3B383B;
+    --tertiary-color: #F1EFE3;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -9,4 +15,38 @@
 body {
     font-family: "Outfit", sans-serif;
     min-height: 100vh;
+    color: var(--secondary-color);
+    background-color: var(--tertiary-color);
+}
+
+button {
+    cursor: pointer;
+}
+
+
+#add-btn {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    border: none;
+    border-radius: 50%;
+    padding: 15px 25px;
+    font-size: 2rem;
+    font-weight: 600;
+    background-color: var(--primary-color);
+}
+
+#books-container {
+    /* background-color: red; */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    border: 2px solid blue;
+    padding: 20px;
+    height: 200px;
+    width: 150px;
+    justify-self: center;
 }
