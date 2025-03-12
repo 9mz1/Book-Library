@@ -13,8 +13,12 @@
 }
 
 body {
-    font-family: "Outfit", sans-serif;
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
     min-height: 100vh;
+    padding: 50px 40px;
+    font-family: "Outfit", sans-serif;
     color: var(--secondary-color);
     background-color: var(--tertiary-color);
 }
@@ -23,21 +27,58 @@ button {
     cursor: pointer;
 }
 
+a {
+    text-decoration: none;
+    color: inherit;
+}
 
-#add-btn {
+
+.btns {
     position: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
     right: 20px;
     bottom: 20px;
+}
+
+#add-btn, .bxl-github {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     border: none;
     border-radius: 50%;
-    padding: 15px 25px;
-    font-size: 2rem;
+    padding: 15px 16px;
     font-weight: 600;
+    transition: 0.3s ease-in-out;
+}
+
+#add-btn {
+    width: 75px;
+    height: 73px;
+    font-size: 2rem;
+    background-color: var(--primary-color);
+}
+#add-btn:hover {
+    background-color: var(--secondary-color);
+    color: var(--tertiary-color);
+}
+
+.bxl-github {
+    font-size: 1.5rem;
+    color: var(--tertiary-color);
+    background-color: var(--secondary-color);
+}
+.bxl-github:hover {
+    color: var(--secondary-color);
     background-color: var(--primary-color);
 }
 
 h1 {
     font-family: "Playfair Display", serif;
+    font-size: 2.5rem;
 }
 
 #books-container {
@@ -48,7 +89,7 @@ h1 {
 }
 
 .card {
-    border: 2px solid blue;
+    border: 2px solid var(--primary-color);
     padding: 20px;
     height: 200px;
     width: 150px;
