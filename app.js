@@ -17,6 +17,7 @@ function Book(title, author, pages, status) {
     this.author = author;
     this.pages = pages;
     this.status = status;
+    this.color = `rgb(${numberGen()}, ${numberGen()}, ${numberGen()})`;
     this.getinfo = function() {
         console.log(`Title: ${this.title}, Author: ${this.author}, Pages: ${this.pages}, Status: ${this.status}`);
     }
@@ -41,9 +42,8 @@ function displayBook() {
         card.classList.add('card');
 
         const cover = document.createElement('div');
-        const colorGen = `rgb(${numberGen()}, ${numberGen()}, ${numberGen()})`;
         cover.classList.add('cover')
-        cover.style.backgroundColor = colorGen;
+        cover.style.backgroundColor = myLibrary[i].color;
 
         const bookStatus = document.createElement('p');
         bookStatus.classList.add('book-status');
