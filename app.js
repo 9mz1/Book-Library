@@ -4,13 +4,23 @@ const submitBtn = document.querySelector("#submit-button")
 const closeBtn = document.querySelector('#close-button');
 const dialog = document.querySelector('#form-dialog');
 const bookForm = document.querySelector('#book-form');
+const nameDialog = document.querySelector('#name-dialog');
+const nameForm = document.querySelector('#name-form');
+const userName = document.querySelector('#name');
 const booksContainer = document.querySelector('#books-container');
 
 const myLibrary = [];
 
-const userName = prompt('What is your name?');
-const finalName = userName.charAt(0).toUpperCase() + userName.slice(1);
-greeting.textContent = `Goodmorning, ${finalName}!`;
+
+nameDialog.showModal();
+nameForm.addEventListener('keypress', () => {
+    if (event.key === 'Enter') {
+        event.preventDefault();
+        const finalName = userName.value.charAt(0).toUpperCase() + userName.value.slice(1);
+        greeting.textContent = `Goodmorning, ${finalName}!`;
+        nameDialog.close();
+    }
+})
 
 function Book(title, author, pages, status) {
     this.ID = crypto.randomUUID();
