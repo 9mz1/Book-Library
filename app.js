@@ -1,6 +1,7 @@
 const greeting = document.querySelector('#greeting');
 const addBtn = document.querySelector('#add-btn');
 const submitBtn = document.querySelector("#submit-button")
+const closeBtn = document.querySelector('#close-button');
 const dialog = document.querySelector('#form-dialog');
 const bookForm = document.querySelector('#book-form');
 const booksContainer = document.querySelector('#books-container');
@@ -78,4 +79,8 @@ submitBtn.addEventListener('click', () => {
     displayBook();
     dialog.close();
     bookForm.reset();
+});
+
+closeBtn.addEventListener('click',() => {
+    dialog.close();
 });

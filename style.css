@@ -140,16 +140,27 @@ h1 {
     justify-content: center;
 }
 
-#book-form #submit-button {
+#book-form > #submit-button, #book-form > #close-button {
     position: absolute;
-    right: 18px;
+}
+
+#book-form #submit-button {
+    right: 12px;
     bottom: 18px;
     width: 60px;
     height: 60px;
     font-size: 1.7rem;
-    padding: 15px 16px;
-    border-radius: 50%;
     background-color: var(--primary-color);
+}
+
+#book-form #close-button {
+    right: 12px;
+    top: 16px;
+    width: 30px;
+    height: 31px;
+    font-size: 1.2rem;
+    color: var(--tertiary-color);
+    background-color: var(--secondary-color);
 }
 
 #books-container {
