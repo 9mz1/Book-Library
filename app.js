@@ -19,7 +19,7 @@ function Book(title, author, pages, status) {
     this.status = status;
     this.color = `rgb(${numberGen()}, ${numberGen()}, ${numberGen()})`;
     this.getinfo = function() {
-        console.log(`Title: ${this.title}, Author: ${this.author}, Pages: ${this.pages}, Status: ${this.status}`);
+        console.log(`Title: ${this.title}, Author: ${this.author}, Pages: ${this.pages}, Status: ${this.status}, Color: ${this.color}`);
     }
 }
 
@@ -79,10 +79,10 @@ function displayBook() {
 }
 
 function numberGen() {
-    let randomNo = Math.floor(Math.random() * 255);
+    let randomNo = Math.floor(Math.random() * 239);
 
     if (randomNo < 140) {
-        return 255;
+        return 239;
     } else {
         return randomNo;
     }
