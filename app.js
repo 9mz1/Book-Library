@@ -11,17 +11,6 @@ const booksContainer = document.querySelector('#books-container');
 
 const myLibrary = [];
 
-
-nameDialog.showModal();
-nameForm.addEventListener('keypress', () => {
-    if (event.key === 'Enter') {
-        event.preventDefault();
-        const finalName = userName.value.charAt(0).toUpperCase() + userName.value.slice(1);
-        greeting.textContent = `Goodmorning, ${finalName}!`;
-        nameDialog.close();
-    }
-})
-
 function Book(title, author, pages, status) {
     this.ID = crypto.randomUUID();
     this.title = title;
@@ -78,6 +67,20 @@ function displayBook() {
         booksContainer.appendChild(card);
     }
 }
+
+nameDialog.showModal();
+nameForm.addEventListener('keypress', () => {
+    if (event.key === 'Enter') {
+        event.preventDefault();
+        const finalName = userName.value.charAt(0).toUpperCase() + userName.value.slice(1);
+        greeting.textContent = `Goodmorning, ${finalName}!`;
+        nameDialog.close();
+    }
+})
+
+greeting.addEventListener('click', () => {
+    nameDialog.showModal();
+})
 
 addBtn.addEventListener('click', () => {
     dialog.showModal();
