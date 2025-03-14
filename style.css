@@ -214,9 +214,57 @@ h1 {
 }
 
 .card {
-    border: 2px solid var(--primary-color);
-    padding: 20px;
+    /* border: 2px solid blue; */
+    width: 150px;
+    height: auto;
+    justify-self: center;
+}
+
+.card .cover {
+    position: relative;
     height: 200px;
     width: 150px;
-    justify-self: center;
+    border-radius: 5px;
+    padding: 5px;
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+}
+
+.card .cover > .book-status {
+    font-weight: 500;
+    position: absolute;
+    left: 6px;
+    bottom: 5px;
+}
+
+.card .cover > .book-pages {
+    font-weight: 500;
+    position: absolute;
+    right: 6px;
+    bottom: 5px;
+}
+
+.card > .card-content {
+    display: flex;
+    flex-direction: column;
+    padding: 0 2px;
+    margin-top: 10px;
+    gap: 3px;
+}
+
+.card .card-content > * {
+    font-family: "Playfair Display", serif;
+}
+
+.card .card-content > .book-title {
+    font-size: 1.5em;
+}
+
+.card .card-content > .book-author {
+    font-size: 1.1em;
+    font-weight: 500;
+}
+
+.section {
+    color: rgb(255, 255, 255);
 }

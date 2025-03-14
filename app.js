@@ -35,10 +35,30 @@ function addBookToLibrary() {
 }
 
 function displayBook() {
-    // booksContainer.innerHTML = '';   //to be uncommented before finalizing
+    booksContainer.innerHTML = '';   //to be uncommented before finalizing
     for (i = 0; i < myLibrary.length; i++) {
         const card = document.createElement('div')
         card.classList.add('card');
+
+        const cover = document.createElement('div');
+        const colorGen = `rgb(${numberGen()}, ${numberGen()}, ${numberGen()})`;
+        cover.classList.add('cover')
+        cover.style.backgroundColor = colorGen;
+
+        const bookStatus = document.createElement('p');
+        bookStatus.classList.add('book-status');
+        if (myLibrary[i].status === true) {
+            bookStatus.textContent = 'Read';
+        } else {
+            bookStatus.textContent = 'Not Read';
+        }
+        
+        const bookPages = document.createElement('p');
+        bookPages.classList.add('book-pages');
+        bookPages.textContent = myLibrary[i].pages;
+
+        const cardContent = document.createElement('div');
+        cardContent.classList.add('card-content');
 
         const bookTitle = document.createElement('h2');
         bookTitle.classList.add('book-title');
@@ -48,23 +68,23 @@ function displayBook() {
         bookAuthor.classList.add('book-author');
         bookAuthor.textContent = myLibrary[i].author;
 
-        const bookPages = document.createElement('p');
-        bookPages.classList.add('book-pages');
-        bookPages.textContent = myLibrary[i].pages;
-
-        const bookStatus = document.createElement('p')
-        bookStatus.classList.add('book-status');
-        if (myLibrary[i].status === true) {
-            bookStatus.textContent = 'read';
-        } else {
-            bookStatus.textContent = 'not read';
-        }
-
-        card.appendChild(bookTitle);
-        card.appendChild(bookAuthor);
-        card.appendChild(bookPages);
-        card.appendChild(bookStatus)
+        card.appendChild(cover);
+        card.appendChild(cardContent);
+        cover.appendChild(bookStatus);
+        cover.appendChild(bookPages)
+        cardContent.appendChild(bookTitle)
+        cardContent.appendChild(bookAuthor)
         booksContainer.appendChild(card);
+    }
+}
+
+function numberGen() {
+    let randomNo = Math.floor(Math.random() * 255);
+
+    if (randomNo < 140) {
+        return 255;
+    } else {
+        return randomNo;
     }
 }
 
