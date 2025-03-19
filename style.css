@@ -31,8 +31,13 @@ button, .bxl-github {
     border-radius: 50%;
     padding: 15px 16px;
     font-weight: 600;
-    transition: 0.3s ease-in-out;
+    transition: 0.3s ease-out;
     cursor: pointer;
+    font-family: "Outfit", sans-serif;
+}
+
+button:active, .bxl-github:active {
+    opacity: 60%; 
 }
 
 dialog {
@@ -121,7 +126,7 @@ h1 {
     height: 420px;
 }
 
-#book-form {
+#book-form{
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -133,24 +138,24 @@ h1 {
     font-weight: 500;
 }
 
-#book-form > .input {
+.input {
     display: flex;
     flex-direction: column;
     gap: 16px;
 }
 
-#book-form .status > .checkbox-label {
+.status > .checkbox-label {
     display: grid;
     grid-template-columns: auto 1em;
     gap: 10px;
     justify-content: center;
 }
 
-#book-form > #submit-button, #book-form > #close-button {
+#book-form > .submit-button, .close-button {
     position: absolute;
 }
 
-#book-form #submit-button {
+#book-form > .submit-button {
     right: 12px;
     bottom: 18px;
     width: 60px;
@@ -159,7 +164,7 @@ h1 {
     background-color: var(--primary-color);
 }
 
-#book-form #close-button {
+.close-button {
     right: 12px;
     top: 16px;
     width: 30px;
@@ -167,6 +172,7 @@ h1 {
     font-size: 1.2em;
     color: var(--tertiary-color);
     background-color: var(--secondary-color);
+    
 }
 
 #name-dialog {
@@ -230,9 +236,24 @@ h1 {
     color: var(--secondary-color);
 }
 
-.card .cover > .book-status {
-    font-weight: 500;
+.card .cover > .cover-btns {
     position: absolute;
+    padding: 0;
+    background-color: transparent;
+    font-size: 1.2em;
+    color: #000;
+    transition: 0.2s ease-in-out;
+}
+.card .cover > .cover-btns:hover {
+    color: var(--tertiary-color);
+}
+
+.card .cover > .delete-button{
+    right: 6px;
+    top: 10px;
+}
+
+.card .cover > .book-status {
     left: 6px;
     bottom: 5px;
 }
@@ -266,5 +287,5 @@ h1 {
 }
 
 .section {
-    color: rgb(255, 255, 255);
+    color: rgb(239, 239, 239);
 }
