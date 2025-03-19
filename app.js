@@ -1,4 +1,5 @@
 const greeting = document.querySelector('#greeting');
+const guide = document.querySelector('#guide');
 const addBtn = document.querySelector('#add-btn');
 const submitBtn = document.querySelector(".submit-button");
 const closeBtn = document.querySelector('.close-button');
@@ -123,7 +124,7 @@ nameForm.addEventListener('keypress', () => {
     if (event.key === 'Enter') {
         event.preventDefault();
         const finalName = userName.value.charAt(0).toUpperCase() + userName.value.slice(1);
-        greeting.textContent = `Goodmorning, ${finalName}!`;
+        greeting.innerHTML = `Goodmorning, ${finalName}! <i class='bx bxs-pencil'></i>`;
         nameDialog.close();
     }
 })
@@ -133,6 +134,7 @@ greeting.addEventListener('click', () => {
 })
 
 addBtn.addEventListener('click', () => {
+    guide.style.display = 'none';
     dialog.showModal();
 })
 

@@ -80,6 +80,15 @@ a {
 }
 
 
+#guide {
+    position: absolute; 
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); 
+    color: var(--secondary-color);
+    opacity: 45%;
+}
+
 .btns {
     position: fixed;
     display: flex;
@@ -114,11 +123,12 @@ a {
 
 h1 {
     font-family: "Playfair Display", serif;
+}
+
+#greeting {
     font-size: 2.5em;
     cursor: pointer;
 }
-
-
 
 #form-dialog {
     /* display: block; */
@@ -151,7 +161,7 @@ h1 {
     justify-content: center;
 }
 
-#book-form > .submit-button, .close-button {
+#book-form > .submit-button, #book-form > .close-button {
     position: absolute;
 }
 
@@ -163,6 +173,10 @@ h1 {
     font-size: 1.7em;
     background-color: var(--primary-color);
 }
+#book-form > .submit-button:hover {
+    color: var(--tertiary-color);
+    background-color: var(--secondary-color);
+}
 
 .close-button {
     right: 12px;
@@ -173,6 +187,10 @@ h1 {
     color: var(--tertiary-color);
     background-color: var(--secondary-color);
     
+}
+.close-button:hover {
+    color: var(--secondary-color);
+    background-color: var(--primary-color);
 }
 
 #name-dialog {
