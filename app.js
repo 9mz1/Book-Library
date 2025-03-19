@@ -1,7 +1,7 @@
 const greeting = document.querySelector('#greeting');
 const addBtn = document.querySelector('#add-btn');
-const submitBtn = document.querySelector("#submit-button")
-const closeBtn = document.querySelector('#close-button');
+const submitBtn = document.querySelector(".submit-button");
+const closeBtn = document.querySelector('.close-button');
 const dialog = document.querySelector('#form-dialog');
 const bookForm = document.querySelector('#book-form');
 const nameDialog = document.querySelector('#name-dialog');
@@ -37,22 +37,42 @@ function addBookToLibrary() {
 
 function displayBook() {
     booksContainer.innerHTML = '';   //to be uncommented before finalizing
-    for (i = 0; i < myLibrary.length; i++) {
+    for (let i = 0; i < myLibrary.length; i++) {
         const card = document.createElement('div')
         card.classList.add('card');
+        card.setAttribute('data-id', myLibrary[i].ID);
 
         const cover = document.createElement('div');
         cover.classList.add('cover')
         cover.style.backgroundColor = myLibrary[i].color;
 
-        const bookStatus = document.createElement('p');
+        const bookDelete = document.createElement('button');
+        bookDelete.classList.add('cover-btns');
+        bookDelete.classList.add('delete-button');
+        bookDelete.innerHTML = "<i class='bx bx-trash-alt'></i>";
+        bookDelete.addEventListener('click', () => {deleteBook(myLibrary[i].ID)});
+
+        const bookStatus = document.createElement('button');
+        bookStatus.classList.add('cover-btns');
         bookStatus.classList.add('book-status');
         if (myLibrary[i].status === true) {
-            bookStatus.textContent = 'Read';
+            bookStatus.innerHTML = "<i class='bx bx-check'></i>";
         } else {
-            bookStatus.textContent = 'Not Read';
+            bookStatus.innerHTML = "<i class='bx bx-x'></i>";
         }
-        
+        bookStatus.addEventListener('click', () => {
+            if (myLibrary[i].status === true) {
+                myLibrary[i].status = false;
+                bookStatus.innerHTML = "<i class='bx bx-x'></i>"
+            } else{
+                myLibrary[i].status = true;
+                bookStatus.innerHTML = "<i class='bx bx-check'></i>";  
+            }
+
+            console.log(myLibrary[i].status);
+            console.table(myLibrary);
+        })
+
         const bookPages = document.createElement('p');
         bookPages.classList.add('book-pages');
         bookPages.textContent = myLibrary[i].pages;
@@ -70,11 +90,21 @@ function displayBook() {
 
         card.appendChild(cover);
         card.appendChild(cardContent);
+        cover.appendChild(bookDelete);
         cover.appendChild(bookStatus);
         cover.appendChild(bookPages)
         cardContent.appendChild(bookTitle)
         cardContent.appendChild(bookAuthor)
         booksContainer.appendChild(card);
+        
+    }
+}
+
+function deleteBook(bookID) {
+    const bookIndex = myLibrary.findIndex(book => book.ID === bookID);
+    if (bookIndex !== -1) {
+        myLibrary.splice(bookIndex, 1); 
+        displayBook(); 
     }
 }
 
@@ -104,7 +134,7 @@ greeting.addEventListener('click', () => {
 
 addBtn.addEventListener('click', () => {
     dialog.showModal();
-});
+})
 
 submitBtn.addEventListener('click', () => {
     event.preventDefault();
@@ -112,8 +142,8 @@ submitBtn.addEventListener('click', () => {
     displayBook();
     dialog.close();
     bookForm.reset();
-});
+})
 
-closeBtn.addEventListener('click',() => {
+closeBtn.addEventListener('click', () => {
     dialog.close();
-});
+})
